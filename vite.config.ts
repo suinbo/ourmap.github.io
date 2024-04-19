@@ -5,5 +5,5 @@ import tsconfigPaths from "vite-tsconfig-paths"
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [react(), tsconfigPaths()],
-    base: "/ourmap.github.io/",
+    //base: "/ourmap.github.io/", // 배포할때 주석해제
 })
