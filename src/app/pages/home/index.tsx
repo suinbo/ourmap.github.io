@@ -9,15 +9,16 @@ const Home = () => {
         lng: 127.3202434,
     }
 
-    console.log(isOpen)
-
     return (
         <>
-            {/* <RemovableCustomOverlayStyle /> */}
             <Map center={markerPosition} style={{ width: "100%", height: "980px" }}>
                 <MapMarker
                     position={markerPosition}
                     onClick={() => setIsOpen(!isOpen)}
+                    infoWindowOptions={{
+                        disableAutoPan: true,
+                        zIndex: -1,
+                    }}
                     image={{
                         src: "/src/assets/images/map-pin.png",
                         size: {
@@ -33,22 +34,22 @@ const Home = () => {
                     }}>
                     {isOpen && (
                         <CustomOverlayMap position={markerPosition}>
-                            <div className="wrap">
-                                <div className="info">
-                                    <div className="title">4/20</div>
-                                    <div className="body">
-                                        <div className="desc">
-                                            <div>
-                                                <a
-                                                    href="https://naver.me/GvXEvDBl"
-                                                    target="_blank"
-                                                    className="link"
-                                                    rel="noreferrer">
-                                                    네이버 지도 보기
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
+                            <div className="overlay-wrap">
+                                <div className="title">
+                                    <i className="xi-star"></i>
+                                    <span>2024 맛집</span>
+                                </div>
+                                <div className="body">
+                                    <span className="date">4/20</span>
+                                    <span>
+                                        <a
+                                            href="https://naver.me/GvXEvDBl"
+                                            target="_blank"
+                                            className="link"
+                                            rel="noreferrer">
+                                            솥뚜껑닭볶음탕
+                                        </a>
+                                    </span>
                                 </div>
                             </div>
                         </CustomOverlayMap>
