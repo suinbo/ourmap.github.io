@@ -42,8 +42,8 @@ const Home = () => {
                 image={{
                     src: "/src/assets/images/location.png",
                     size: {
-                        width: 60,
-                        height: 60,
+                        width: 50,
+                        height: 50,
                     },
                     options: {
                         offset: {
