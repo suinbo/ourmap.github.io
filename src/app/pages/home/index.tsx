@@ -5,26 +5,30 @@ import "./style.scss"
 type MapMarkerPositionProp = {
     title: string
     latlng: { lat: number; lng: number }
+    date: string
 }
 
 const Home = () => {
     const centerPosition = {
-        lat: 37.87422919,
-        lng: 126.7803825,
+        lat: 37.873214,
+        lng: 126.7889361,
     }
 
     const markerPositions = [
         {
             title: "소풍농월",
             latlng: { lat: 37.8706859, lng: 126.7854196 },
+            date: "3/23",
         },
         {
             title: "여우골정원",
             latlng: { lat: 37.873214, lng: 126.7889361 },
+            date: "3/23",
         },
         {
             title: "문지리 535",
             latlng: { lat: 37.8298016, lng: 126.718562 },
+            date: "3/30",
         },
     ]
 
@@ -40,10 +44,10 @@ const Home = () => {
                     zIndex: 1,
                 }}
                 image={{
-                    src: "/src/assets/images/location.png",
+                    src: "./location.png",
                     size: {
-                        width: 50,
-                        height: 50,
+                        width: 40,
+                        height: 40,
                     },
                     options: {
                         offset: {
@@ -56,10 +60,10 @@ const Home = () => {
                     <div className="overlay-wrap" style={{ padding: 10 }}>
                         <div className="title">
                             <i className="xi-star"></i>
-                            <span>2024 맛집</span>
+                            <span>2024년 3월</span>
                         </div>
                         <div className="body">
-                            <span className="date">4/20</span>
+                            <span className="date">{position.date}</span>
                             <span>
                                 <a href="https://naver.me/GvXEvDBl" target="_blank" className="link" rel="noreferrer">
                                     {position.title}

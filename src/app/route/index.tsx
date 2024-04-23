@@ -1,14 +1,14 @@
 import Pages from "@/pages"
-import { RouterProvider, createBrowserRouter } from "react-router-dom"
+import { HashRouter as Router, Route, Routes } from "react-router-dom"
 
-const Router = () => {
-    const objectRouter = createBrowserRouter([
-        {
-            path: "/",
-            element: <Pages.Home />,
-        },
-    ])
-    return <RouterProvider router={objectRouter}></RouterProvider>
+const AppRouter = () => {
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<Pages.Home />}></Route>
+            </Routes>
+        </Router>
+    )
 }
 
-export default Router
+export default AppRouter
