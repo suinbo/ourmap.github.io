@@ -1,6 +1,7 @@
 import { Map, MapMarker } from "react-kakao-maps-sdk"
 import { useState } from "react"
 import "./style.scss"
+import Aside from "@/components/Aside"
 
 type MapMarkerPositionProp = {
     title: string
@@ -57,7 +58,7 @@ const Home = () => {
                     },
                 }}>
                 {isOpen && (
-                    <div className="overlay-wrap" style={{ padding: 10 }}>
+                    <div className="overlay-wrap" style={{ padding: 12 }}>
                         <div className="title">
                             <i className="xi-star"></i>
                             <span>2024년 3월</span>
@@ -106,6 +107,12 @@ const Home = () => {
                     <Marker key={`marker_${index}`} position={marker} />
                 ))}
             </Map>
+            <Aside
+                markList={[
+                    { text: "3월", color: "rgb(146, 49, 238)" },
+                    { text: "4월", color: "rgb(255, 139, 43)" },
+                ]}
+            />
         </>
     )
 }

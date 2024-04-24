@@ -1,14 +1,10 @@
 .overlay-wrap {
-    > div {
-        margin-bottom: 2px;
-    }
-
     .title {
         display: flex;
         gap: 6px;
         color: rgb(146, 49, 238);
         font-weight: 600;
-        align-items: center;
+        margin-bottom: 2px;
     }
 
     .body {

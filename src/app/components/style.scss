@@ -1,0 +1,92 @@
+@mixin positionStyle($margin) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    margin: $margin;
+}
+
+.aside {
+    @include positionStyle(20px);
+    width: 120px;
+
+    .inner {
+        display: flex;
+        flex-direction: column;
+        padding: 12px;
+        background-color: #fff;
+        border-radius: 8px;
+        gap: 10px;
+
+        > i {
+            text-align: right;
+        }
+
+        .title {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .body {
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            flex-direction: column;
+            color: #2c2c2c;
+
+            .branch {
+                color: #2c2c2c;
+                margin-right: 6px;
+            }
+
+            .depth {
+                margin-bottom: 8px;
+
+                .depth1 {
+                    cursor: pointer;
+
+                    text-align: center;
+                    border-radius: 6px;
+
+                    &.add {
+                        padding: 1px;
+                        border: 1px solid #dee9fd;
+                        background-color: #fff;
+                    }
+
+                    &:not(.add) {
+                        padding: 3px;
+                        background-color: #e9f1ff;
+
+                        > span {
+                            &::after {
+                                content: "\e942";
+                                font-family: "xeicon";
+                                margin-left: 6px;
+                            }
+                        }
+                    }
+                }
+
+                .depth2 {
+                    padding: 10px;
+
+                    > div.mark {
+                        padding-left: 6px;
+
+                        > span {
+                            i {
+                                margin-right: 2px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.nav {
+    @include positionStyle(32px);
+}
