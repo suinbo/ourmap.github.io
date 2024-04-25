@@ -1,5 +1,5 @@
 import { Map, MapMarker } from "react-kakao-maps-sdk"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./style.scss"
 import Aside from "@/components/Aside"
 
@@ -32,6 +32,20 @@ const Home = () => {
             date: "3/30",
         },
     ]
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(`http://3.38.245.169:3000/`)
+                const result = await response.json()
+                console.log(result)
+            } catch (error) {
+                console.error("Error fetching data:", error)
+            }
+        }
+
+        fetchData()
+    }, [])
 
     const Marker = ({ position }: { position: MapMarkerPositionProp }) => {
         const [isOpen, setIsOpen] = useState<boolean>(false)

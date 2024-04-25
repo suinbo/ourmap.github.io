@@ -30,7 +30,7 @@ const Aside = ({ markList }: { markList: MarkProp[] }) => {
         return (
             <div className="depth">
                 <div className={cx("depth1", { add })}>
-                    <span>{add ? "+" : "2024년"}</span>
+                    <span>{add ? "+ 그룹" : "2024년"}</span>
                 </div>
                 {!add && <MarkerList />}
             </div>
