@@ -1,7 +1,8 @@
 import { Map, MapMarker } from "react-kakao-maps-sdk"
 import { useEffect, useState } from "react"
-import "./style.scss"
 import Aside from "@/components/Aside"
+import axios from "axios"
+import "./style.scss"
 
 type MapMarkerPositionProp = {
     title: string
@@ -34,17 +35,17 @@ const Maps = () => {
     ]
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch(`http://52.78.215.105:3000/`)
-                const result = await response.json()
-                console.log(result)
-            } catch (error) {
-                console.error("Error fetching data:", error)
-            }
-        }
-
-        fetchData()
+        axios
+            .get("http://3.38.99.215:3000/api/getMarker", {
+                params: { sDate: new Date("2024-03-01 00:00:00"), eDate: new Date("2024-04-01 00:00:00") },
+            })
+            .then(response => {
+                if (response.status === 200) {
+                    console.log(response)
+                } else {
+                    alert("로그인에 실패하였습니다.")
+                }
+            })
     }, [])
 
     const Marker = ({ position }: { position: MapMarkerPositionProp }) => {
